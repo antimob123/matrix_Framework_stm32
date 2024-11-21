@@ -1,0 +1,24 @@
+ 您需要手动设置栈指针（SP）和程序计数器（PC），以便从Bootloader跳转到应用程序（app）。在没有Bootloader的情况下，这些步骤是由硬件自动完成的；但现在您需要通过软件实现它。-------------(要在boot跳转里面实现它)
+
+///////////////////////////////////////////////////////////////////////////////////
+最简单的boot 到 app 的跳转   
+//	void (*app)(void);	
+//  app = (void (*)(void))0x08010001; 
+//	app();
+/////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////
+设置SP 和 PC
+#define APP_START_ADDRESS  0x08010000  // 应用程序的起始地址
+
+typedef void (*app_entry_t)(void);
+
+void JumpToApplication(void) {
+    uint32_t appStack = *((volatile uint32_t*)APP_START_ADDRESS);   // 设置栈指针（SP）
+    uint32_t appEntry = *((volatile uint32_t*)(APP_START_ADDRESS + 4)); // 设置程序计数器（PC）
+
+    __set_MSP(appStack);  // 设置主堆栈指针
+    app_entry_t appEntryPoint = (app_entry_t)appEntry;
+    appEntryPoint();  // 跳转到应用程序
+}
+//////////////////////////////////////////////////////////////////////////////////////////	

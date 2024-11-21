@@ -1,0 +1,4 @@
+Dependencies for Project 'lec_my', Target 'led_me': (DO NOT MODIFY !)
+CompilerVersion: 6220000::V6.22::ARMCLANG
+F (.\mian.c)(0x672792FC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-ID:/Keil_v5/pack/Keil/STM32F1xx_DFP/2.0.0/Device/Include-D__UVISION_VERSION="541" -DSTM32F10X_MD-o ./objects/mian.o -MMD)
+F (.\start.s)(0x672DCB6E)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4-ID:/Keil_v5/pack/Keil/STM32F1xx_DFP/2.0.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 541" -Wa,armasm,--pd,"STM32F10X_MD SETA 1"-o ./objects/start.o)
